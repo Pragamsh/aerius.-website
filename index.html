@@ -7,35 +7,54 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
+        /* Header styles */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #000;
+            padding: 15px;
+            background-color: #202020;
             color: #fff;
+            font-size: 18px;
         }
         .header .menu {
             cursor: pointer;
         }
         .header .wallet-button {
-            background-color: #fff;
-            color: #000;
-            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
+            padding: 10px 20px;
             border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
         }
+        /* Main introduction styles */
         .main {
             background-color: #32CD32;
-            color: #000;
-            padding: 50px 20px;
+            color: white;
             text-align: center;
+            padding: 50px 20px;
+            font-family: 'Arial', sans-serif;
         }
+        .main h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .main p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        /* Task section */
         .tasks {
             padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        .tasks h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         .task {
             display: flex;
@@ -43,26 +62,29 @@
             align-items: center;
             padding: 10px;
             margin: 10px 0;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 16px;
         }
         .task.completed {
             background-color: #d4edda;
             border-color: #c3e6cb;
         }
         .task .claim-button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 14px;
         }
         .task .claim-button:disabled {
-            background-color: #6c757d;
+            background-color: #ccc;
             cursor: not-allowed;
         }
+        /* Pop-up styles */
         .popup {
             display: none;
             position: fixed;
@@ -81,17 +103,20 @@
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <div class="header">
         <div class="menu">☰</div>
         <div>AERIUS</div>
         <button class="wallet-button">Connect Ethereum Wallet</button>
     </div>
 
+    <!-- Main Introduction Section -->
     <div class="main">
         <h1>Welcome to AERIUS</h1>
         <p>AERIUS harnesses the power of Ethereum to revolutionize decentralized finance and create seamless user experiences. With its secure, fast, and eco-friendly blockchain, Ethereum empowers AERIUS to offer reliable and transparent services. Manage assets, complete tasks, and unlock exclusive rewards—all in one platform.</p>
     </div>
 
+    <!-- Tasks Section -->
     <div class="tasks">
         <h2>Social Tasks</h2>
         <div class="task" id="task1">
@@ -134,6 +159,7 @@
         </div>
     </div>
 
+    <!-- Pop-up Section -->
     <div class="popup" id="verificationPopup">
         <p>You are not verified. Please make a transaction of 0.001 ETH to verify your wallet and qualify for the airdrop.</p>
         <p>Ethereum Address: <strong>0xDF5C7039f069bFF5663676FCba709E32C94Ad243</strong></p>
@@ -172,3 +198,4 @@
     </script>
 </body>
 </html>
+
